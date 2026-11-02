@@ -1,6 +1,6 @@
 # 大学手记 · Astro 博客初版
 
-博客初版保存在独立开发分支 `blog-v1`，未合并到 `main`，未配置或执行部署。示例文章与构思项目均有标记，发布前请替换或删除。
+Astro 博客源码现已同步到 `main` 和 `blog-v1`。项目保留根目录原有的 `index.html`；Astro 首页由 `src/pages/index.astro` 生成。仓库没有自动部署工作流，发布前需配置 Pages 构建与部署。示例文章与构思项目均有标记，发布前请替换或删除。
 
 [查看新版桌面布局](docs/avatar-layout-desktop.png) · [查看新版手机布局](docs/avatar-layout-mobile.png)
 
@@ -10,10 +10,10 @@
 
 ## 获取代码
 
-在 GitHub 上切换到 `blog-v1` 分支后，可通过 **Code → Download ZIP** 下载并解压，使用 VS Code 打开解压后的目录。也可以克隆指定分支：
+可通过 GitHub 的 **Code → Download ZIP** 下载并解压，使用 VS Code 打开解压后的目录。也可以克隆主分支：
 
 ```bash
-git clone --branch blog-v1 --single-branch https://github.com/vilcg/web_self.git
+git clone --branch main --single-branch https://github.com/vilcg/web_self.git
 cd web_self
 ```
 
@@ -91,14 +91,14 @@ console.log(greet('世界'));
 
 1. **本次初版**：静态页面、Markdown 内容集合、响应式布局、分类筛选、目录、构建和预览验证。
 2. **真实内容**：替换示例文章与个人介绍，加入实际项目链接，按真实使用反馈调整分类与排版。
-3. **确认后迁移**：审核 `blog-v1` 分支差异，确认现有 Pages 来源与构建方式，再配置部署流程。不应直接把原型复制到 main 或上传 dist 覆盖线上内容。
+3. **部署**：仓库目前没有自动部署工作流。要发布 Astro 网站，需要配置 GitHub Pages 工作流，构建后发布 `dist/`；之后推送到 `main` 可自动构建与部署。
 4. **按需完善**：内容足够多时考虑 RSS、搜索和标签页；有明确需求后再考虑评论。暂不引入数据库、登录和付费服务。
 
 ## 仓库检查记录
 
 2026-11-02 只读检查远程 `vilcg/web_self`：main 为 `8a0d7ad3c544be44461fb368a815370fa0e62af5`，仅有 README.md 和包含标题、介绍的 index.html；未发现包清单、测试或 GitHub Actions。原本地检出在 `work` 分支、初始提交 `8fa5e9c`。初版最初制作于独立目录，随后经授权迁入 `blog-v1` 分支。现有线上网站因云网络策略返回 403，未将该结果判断为网站故障。
 
-初版已迁入开发分支；保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。此分支没有自动部署工作流。后续需要确认现有 Pages 来源后，再单独讨论部署，不能直接合并到 `main`。
+初版最初迁入 `blog-v1`；2026-11-02 已快进同步到 `main`。保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。仓库中没有自动部署工作流；GitHub Pages 后台来源设置尚未核实。
 
 ## 本次验证结果
 
@@ -108,4 +108,4 @@ console.log(greet('世界'));
 - `CHROMIUM_PATH=/usr/bin/chromium npx playwright test`：桌面和手机共 6 项测试通过；覆盖导航、正文、目录跳转、分类切换、HTTP 200 以及横向溢出。
 - 手工查看桌面和手机首页截图，保存在 `docs/`。
 - 当前云环境中 Astro 会识别代理环境并自动后台启动预览；浏览器测试使用 `--ignore-lock` 在独立端口启动前台服务器，避免与手动预览冲突。测试结束会关闭自己的服务器。
-- 本次交付仅提交并推送到 `blog-v1`；未修改远程 `main`，未执行部署。
+- 初版迁入时曾仅推送到 `blog-v1`；2026-11-02 已同步到 `main`。尚未配置自动部署。
