@@ -1,9 +1,4 @@
 ---
 import { url } from '../lib/site';
-import { avatarAvailable } from '../lib/avatar.mjs';
 ---
-{avatarAvailable ? (
-  <img class="avatar" src={url('images/avatar.webp')} alt="vilcg 的个人头像" width="112" height="112" loading="eager" decoding="async" />
-) : (
-  <div class="avatar avatar-placeholder" role="img" aria-label="头像占位，等待原图"><span aria-hidden="true">v.</span></div>
-)}
+<img class="avatar" src={url('images/avatar.webp')} alt="vilcg 的个人头像" width="112" height="112" loading="eager" decoding="async" />
