@@ -4,7 +4,7 @@ test('导航、文章详情与目录可以使用', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('./');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('留下痕迹');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('vilcg');
   await page.getByRole('navigation', { name: '主导航' }).getByRole('link', { name: '文章', exact: true }).click();
   await expect(page.locator('.post-row:visible')).toHaveCount(3);
   await page.getByRole('link', { name: '从一个网页开始，搭建自己的数字花园', exact: true }).click();

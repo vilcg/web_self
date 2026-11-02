@@ -2,7 +2,11 @@
 
 博客初版保存在独立开发分支 `blog-v1`，未合并到 `main`，未配置或执行部署。示例文章与构思项目均有标记，发布前请替换或删除。
 
-[查看桌面截图](docs/home-desktop.png) · [查看手机截图](docs/home-mobile.png)
+[查看新版桌面布局](docs/avatar-layout-desktop.png) · [查看新版手机布局](docs/avatar-layout-mobile.png)
+
+新版为单栏布局。**正式头像尚待原文件**：对话中的图片可见，但本次执行环境未收到可读取的 `blog-avatar.webp` 文件，因此目前使用明确的 `v.` 占位。不能将当前截图视为头像替换完成。
+
+将原始 WebP 文件原样放到 `public/images/avatar.webp` 后，重启开发服务器或重新构建，首页和关于页会使用该头像。桌面为 112px、手机为 88px；`border-radius: 50%` 控制圆形，`object-fit: cover` 保持比例。实际面部显示效果需在原图到位后验证。
 
 ## 获取代码
 
@@ -61,6 +65,8 @@ Astro 的 `.astro` 文件上半部分 `---` 内是构建时逻辑，下半部分
 - `src/lib/site.ts`：子路径地址、日期格式与文章排序；`draft: true` 不进入列表或输出。
 - `src/components/PostList.astro`：首页和文章页复用的列表。
 - `src/styles/global.css`：统一颜色、排版、移动布局和焦点样式。
+- `src/components/Avatar.astro`：首页和关于页共享头像，缺少原文件时明确显示占位。
+- `src/lib/avatar.mjs`：构建时检查原始头像文件是否存在，不生成或替换用户图片。
 - `public/`：本地原创 SVG 插画与图标，不依赖外部图片或字体服务。
 - `scripts/smoke.mjs`、`tests/`：产物链接与浏览器检查。
 
@@ -106,7 +112,7 @@ draft: false
 
 - `npm run check`：0 errors、0 warnings、0 hints。
 - `npm run build`：生成 7 个静态页面。
-- `npm run smoke`：71 个站内链接与资源目标存在，所有页面有中文语言声明与主标题。
+- `npm run smoke`：69 个站内链接与资源目标存在（单栏改版后），所有页面有中文语言声明与主标题。
 - `CHROMIUM_PATH=/usr/bin/chromium npx playwright test`：桌面和手机共 6 项测试通过；覆盖导航、正文、目录跳转、分类切换、HTTP 200 以及横向溢出。
 - 手工查看桌面和手机首页截图，保存在 `docs/`。
 - 当前云环境中 Astro 会识别代理环境并自动后台启动预览；浏览器测试使用 `--ignore-lock` 在独立端口启动前台服务器，避免与手动预览冲突。测试结束会关闭自己的服务器。

@@ -1,20 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
+import Avatar from '../components/Avatar.astro';
 import PostList from '../components/PostList.astro';
 import { getPosts, url } from '../lib/site';
 const posts = await getPosts();
 ---
 <Base>
-  <section class="hero">
-    <div class="hero-copy"><div class="eyebrow"><span class="short-line"></span> A NOTEBOOK FOR THE COLLEGE YEARS</div>
-    <h1>在学习中探索，<br />在生活里<span class="accent handwriting">留下痕迹。</span></h1>
-    <p>你好，我是 vilcg。<br />这里是一份慢慢写下的大学手记，<br class="mobile-break" />关于生活、代码，以及那些还在生长的想法。</p>
-    <div class="hero-actions"><a class="button" href={url('posts/')}>翻开手记 <span>↗</span></a><a class="text-link" href={url('about/')}>认识一下我 <span>→</span></a></div>
-    <div class="hero-footnote"><span>01 /</span> 保持好奇，也保持记录。</div></div>
-    <div class="hero-art"><div class="art-coordinate">FIELD NOTES — VOL. 01</div><img src={url('notebook.svg')} alt="一本展开的手记、一支铅笔与一株向上生长的植物的插画" width="560" height="440" /><div class="art-caption"><span>日有所学 · 亦有所记</span><span>EST. 2026</span></div></div>
+  <section class="profile" aria-labelledby="profile-heading">
+    <Avatar />
+    <div class="profile-copy">
+      <h1 id="profile-heading">你好，我是 vilcg<span class="hello-dot">。</span></h1>
+      <p>在学习中探索，在生活里留下痕迹。<br />记录大学日常、学习笔记，以及动手做出来的小作品。</p>
+      <div class="profile-links"><a href="https://github.com/vilcg">GitHub ↗</a><a href={url('about/')}>关于我 →</a></div>
+    </div>
   </section>
-  <section class="section latest"><div class="section-heading"><div><span class="eyebrow">RECENT ENTRIES</span><h2>最近写下的<span class="heading-dot">.</span></h2></div><a class="text-link" href={url('posts/')}>全部文章 <span>↗</span></a></div>
-    <div class="home-columns"><PostList posts={posts.slice(0, 3)} /><aside class="now-card"><div class="eyebrow"><span class="status-dot"></span> NOW / 此刻</div><h3>一边学习，<br />一边把想法落地。</h3><p>从一个简单的博客开始，练习写作，也练习把代码变成看得见的作品。</p><div class="now-divider"></div><span class="tiny-label">这个小站关心什么</span><div class="tag-cloud"><span>Web 开发</span><span>学习方法</span><span>大学日常</span></div><span class="now-note">第一版 · 慢慢完善中</span></aside></div>
+  <section class="section latest" aria-labelledby="recent-heading">
+    <div class="section-heading"><h2 id="recent-heading">最近写下的</h2><a class="text-link" href={url('posts/')}>全部文章 →</a></div>
+    <PostList posts={posts.slice(0, 3)} />
   </section>
-  <section class="project-strip"><div><span class="eyebrow">LEARNING BY BUILDING</span><h2>让想法，有一个着落。</h2><p>小工具、实验与个人项目，记录从想法到实现的过程。</p></div><a class="button button-outline" href={url('projects/')}>看看项目 <span>↗</span></a></section>
+  <section class="now-card" aria-labelledby="now-heading"><span class="eyebrow"><span class="status-dot"></span> 此刻</span><h2 id="now-heading">一边学习，一边把想法落地。</h2><p>从一个简单的博客开始，练习写作，也练习把代码变成看得见的作品。</p><div class="tag-cloud"><span>Web 开发</span><span>学习方法</span><span>大学日常</span></div></section>
+  <section class="project-strip"><div><h2>让想法，有一个着落。</h2><p>小工具、实验与个人项目，记录从想法到实现的过程。</p></div><a class="text-link" href={url('projects/')}>看看项目 →</a></section>
 </Base>
