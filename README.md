@@ -1,6 +1,6 @@
 # 大学手记 · Astro 博客初版
 
-Astro 博客源码现已同步到 `main` 和 `blog-v1`。项目保留根目录原有的 `index.html`；Astro 首页由 `src/pages/index.astro` 生成。`.github/workflows/astro.yml` 会在推送到 `main` 时用 Node 24 构建并发布 `dist/`。GitHub Pages 的 Source 需设为 GitHub Actions。示例文章与构思项目均有标记，发布前请替换或删除。
+Astro 博客初版从 `blog-v1` 同步到了 `main`。项目保留根目录原有的 `index.html`；Astro 首页由 `src/pages/index.astro` 生成。GitHub Pages 已使用 Actions 发布：推送到 `main` 后，`.github/workflows/astro.yml` 会用 Node 24.19.0 构建并发布 `dist/`。示例文章与构思项目均有标记，发布前请替换或删除。
 
 [查看新版桌面布局](docs/avatar-layout-desktop.png) · [查看新版手机布局](docs/avatar-layout-mobile.png)
 
@@ -98,7 +98,7 @@ console.log(greet('世界'));
 
 2026-11-02 只读检查远程 `vilcg/web_self`：main 为 `8a0d7ad3c544be44461fb368a815370fa0e62af5`，仅有 README.md 和包含标题、介绍的 index.html；未发现包清单、测试或 GitHub Actions。原本地检出在 `work` 分支、初始提交 `8fa5e9c`。初版最初制作于独立目录，随后经授权迁入 `blog-v1` 分支。现有线上网站因云网络策略返回 403，未将该结果判断为网站故障。
 
-初版最初迁入 `blog-v1`；2026-11-02 已快进同步到 `main`。保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。自动部署工作流已加入；Pages 后台 Source 仍需为 **GitHub Actions**。
+初版最初迁入 `blog-v1`；2026-11-02 已快进同步到 `main`。保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。自动部署工作流已验证成功，Pages Source 为 **GitHub Actions**。
 
 ## 本次验证结果
 
