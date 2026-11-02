@@ -21,27 +21,7 @@ cd web_self
 
 需要 Node.js >=22.23.4（当前 24.19.0）、npm >=9.6.5。
 
-```bash
-# 在下载或克隆的项目根目录中运行
-npm ci
-# 云环境只读主目录：关闭非必需遥测
-export ASTRO_TELEMETRY_DISABLED=1
-npm run check
-npm run build
-npm run smoke
-npm run dev -- --host 0.0.0.0
-```
 
-开发服务器默认端口 4321，项目入口路径 `/web_self/`。正式产物预览：`npm run preview -- --host 0.0.0.0`。这些命令只在当前机器启动服务，不会发布网站。云环境是否支持浏览器转发取决于宿主界面；没有转发时可下载目录到本地运行相同命令。
-
-浏览器检查（可选，需要 Chromium）：
-
-```bash
-npx playwright install chromium
-# 测试会自动在 4322 端口启动临时预览
-npx playwright test
-# 云环境已有 Chromium 时：CHROMIUM_PATH=/usr/bin/chromium npx playwright test
-```
 
 ## 为什么用这套技术
 
