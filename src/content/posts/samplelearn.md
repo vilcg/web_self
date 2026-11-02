@@ -1,5 +1,5 @@
 ---
-title: 从一个网页开始，搭建自己的数字花园
+title: AIMA 学习笔记：从样例中学习
 description: 为什么选择 Astro，以及这本大学手记的第一版是怎样组织起来的。
 date: 2026-11-02
 category: 建站记录
