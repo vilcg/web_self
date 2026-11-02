@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import { site, url } from '../lib/site';
+interface Props { title?: string; description?: string; }
+const { title, description = site.description } = Astro.props;
+const current = Astro.url.pathname;
+const nav = [['', '首页'], ['posts/', '文章'], ['projects/', '项目'], ['about/', '关于']];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f5ef" />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <title>{title ? `${title} · ${site.name}` : `${site.name} · ${site.author} 的个人博客`}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header shell">
+      <a class="brand" href={url()} aria-label="大学手记首页"><span class="brand-mark">记</span><span>{site.name}<small>VILCG / PERSONAL JOURNAL</small></span></a>
+      <nav aria-label="主导航">{nav.map(([path, label]) => {
+        const active = path ? current.startsWith(url(path)) : current === url() || current === url().replace(/\/$/, '');
+        return <a href={url(path)} aria-current={active ? 'page' : undefined}>{label}</a>;
+      })}</nav>
+      <span class="header-note"><span class="status-dot"></span>持续生长中</span>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="shell site-footer"><p>© {new Date().getFullYear()} vilcg <span>·</span> 把日子过成值得记录的样子。</p><div><a href="https://github.com/vilcg/web_self">GitHub ↗</a><span>用 Astro 构建</span></div></footer>
+  </body>
+</html>
