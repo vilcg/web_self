@@ -4,9 +4,9 @@
 
 [查看新版桌面布局](docs/avatar-layout-desktop.png) · [查看新版手机布局](docs/avatar-layout-mobile.png)
 
-新版为单栏布局。**正式头像尚待原文件**：对话中的图片可见，但本次执行环境未收到可读取的 `blog-avatar.webp` 文件，因此目前使用明确的 `v.` 占位。不能将当前截图视为头像替换完成。
+[阅读简明使用手册](docs/使用手册.md)
 
-将原始 WebP 文件原样放到 `public/images/avatar.webp` 后，重启开发服务器或重新构建，首页和关于页会使用该头像。桌面为 112px、手机为 88px；`border-radius: 50%` 控制圆形，`object-fit: cover` 保持比例。实际面部显示效果需在原图到位后验证。
+新版为单栏布局。首页与关于页共用头像组件；当前头像位于 `public/images/avatar.webp`，桌面为 112px、手机为 88px，并使用圆形裁切。
 
 ## 获取代码
 
@@ -21,6 +21,7 @@ cd web_self
 
 需要 Node.js >=22.23.4（当前 24.19.0）、npm >=9.6.5。
 
+本地预览运行 `npm run dev -- --host 127.0.0.1 --port 5173`，然后打开 `http://127.0.0.1:5173/web_self/`。如果 Windows 对默认端口报 `EACCES`，可像上面这样指定其他未保留端口。
 
 
 ## 为什么用这套技术
@@ -70,6 +71,17 @@ draft: false
 
 在这里写正文。
 ```
+
+正文直接用 Markdown 写。需要展示代码时，用三个反引号包住代码，并在开头注明语言：
+
+````markdown
+## 一段 JavaScript 示例
+
+```js
+const greet = (name) => `你好，${name}！`;
+console.log(greet('世界'));
+```
+````
 
 分类目前支持「学习笔记」「生活随记」「建站记录」。文件名用简单英文与连字符，作为 URL 的一部分。用 `draft: true` 暂存草稿。正文使用 Markdown 的标题、列表、代码块即可；站内链接应包含 `/web_self/`，构建后的 `smoke` 会检查目标是否存在。
 
