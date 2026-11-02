@@ -1,6 +1,6 @@
 # 大学手记 · Astro 博客初版
 
-Astro 博客源码现已同步到 `main` 和 `blog-v1`。项目保留根目录原有的 `index.html`；Astro 首页由 `src/pages/index.astro` 生成。仓库没有自动部署工作流，发布前需配置 Pages 构建与部署。示例文章与构思项目均有标记，发布前请替换或删除。
+Astro 博客源码现已同步到 `main` 和 `blog-v1`。项目保留根目录原有的 `index.html`；Astro 首页由 `src/pages/index.astro` 生成。`.github/workflows/astro.yml` 会在推送到 `main` 时用 Node 24 构建并发布 `dist/`。GitHub Pages 的 Source 需设为 GitHub Actions。示例文章与构思项目均有标记，发布前请替换或删除。
 
 [查看新版桌面布局](docs/avatar-layout-desktop.png) · [查看新版手机布局](docs/avatar-layout-mobile.png)
 
@@ -91,14 +91,14 @@ console.log(greet('世界'));
 
 1. **本次初版**：静态页面、Markdown 内容集合、响应式布局、分类筛选、目录、构建和预览验证。
 2. **真实内容**：替换示例文章与个人介绍，加入实际项目链接，按真实使用反馈调整分类与排版。
-3. **部署**：仓库目前没有自动部署工作流。要发布 Astro 网站，需要配置 GitHub Pages 工作流，构建后发布 `dist/`；之后推送到 `main` 可自动构建与部署。
+3. **部署**：`.github/workflows/astro.yml` 自动构建并发布 `dist/`。GitHub Pages 的 Source 设为 **GitHub Actions** 后，每次推送到 `main` 会自动部署。
 4. **按需完善**：内容足够多时考虑 RSS、搜索和标签页；有明确需求后再考虑评论。暂不引入数据库、登录和付费服务。
 
 ## 仓库检查记录
 
 2026-11-02 只读检查远程 `vilcg/web_self`：main 为 `8a0d7ad3c544be44461fb368a815370fa0e62af5`，仅有 README.md 和包含标题、介绍的 index.html；未发现包清单、测试或 GitHub Actions。原本地检出在 `work` 分支、初始提交 `8fa5e9c`。初版最初制作于独立目录，随后经授权迁入 `blog-v1` 分支。现有线上网站因云网络策略返回 403，未将该结果判断为网站故障。
 
-初版最初迁入 `blog-v1`；2026-11-02 已快进同步到 `main`。保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。仓库中没有自动部署工作流；GitHub Pages 后台来源设置尚未核实。
+初版最初迁入 `blog-v1`；2026-11-02 已快进同步到 `main`。保留原有根目录 `index.html`，Astro 使用 `src/pages/index.astro` 生成首页。自动部署工作流已加入；Pages 后台 Source 仍需为 **GitHub Actions**。
 
 ## 本次验证结果
 
