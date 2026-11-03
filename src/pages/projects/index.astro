@@ -5,12 +5,14 @@ import Base from '../../layouts/Base.astro';
   <header class="page-heading"><h1>项目</h1><p>把正在学习的东西，变成可以使用和分享的作品</p></header>
   <div class="project-grid">
     <article class="project-card">
-      <h2>大学手记</h2>
+      <div class="project-visual" aria-hidden="true"><span class="project-mark">大学手记</span></div>
+      <h2>个人博客</h2>
       <p>用 Astro 搭建的个人博客，记录大学生活与学习笔记，也展示亲手完成的小项目。页面、文章和样式分开管理，方便持续写作与维护。</p>
       <div class="tag-cloud" aria-label="使用技术"><span>Astro</span><span>Markdown</span><span>CSS</span></div>
       <a class="project-link" href="https://github.com/vilcg/web_self">查看源码</a>
     </article>
     <article class="project-card">
+      <div class="project-visual" aria-hidden="true"><span class="project-mark">课程管理</span></div>
       <h2>选课管理系统</h2>
       <p>基于 Flask 的课程管理 Web 演示。学生可以查看课程、选课和退课；管理员可以添加课程并分配教师。</p>
       <div class="tag-cloud" aria-label="使用技术"><span>Python</span><span>Flask</span><span>MySQL</span></div>
