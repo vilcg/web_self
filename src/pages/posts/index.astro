@@ -6,8 +6,7 @@ const posts = await getPosts();
 const categories = ['全部', '学习笔记', '生活随记', '建站记录'];
 ---
 <Base title="文章" description="生活随记、学习笔记与建站记录。">
-  <header class="page-heading"><span class="eyebrow">THE JOURNAL</span><h1>写下来的，<br />都是成长的线索<span class="accent">。</span></h1><p>整理知识，也收藏生活。共 {posts.length} 篇手记。</p></header>
-  <p class="notice">初版中的文章均为写作示例，可替换为你自己的真实记录。</p>
+  <header class="page-heading"><h1>文章</h1><p>学习笔记、生活记录与建站过程，共 {posts.length} 篇手记</p></header>
   <div class="filters" role="group" aria-label="按分类筛选">{categories.map((category, index) => <button type="button" data-category={category} aria-pressed={index === 0}>{category}</button>)}</div>
   <div class="archive-list"><PostList posts={posts} /></div>
   <p class="filter-status" aria-live="polite">显示全部 {posts.length} 篇文章</p>

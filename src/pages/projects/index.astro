@@ -1,9 +1,20 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { url } from '../../lib/site';
 ---
-<Base title="项目" description="从一个小想法开始，记录个人项目与开发实践。">
-  <header class="page-heading"><span class="eyebrow">THE WORKSHOP</span><h1>在动手的过程中，<br />找到答案<span class="accent">。</span></h1><p>作品不必很大，重要的是亲手把它做出来。</p></header>
-  <div class="project-grid"><article class="project-card"><div class="project-visual"><span class="project-glyph">&lt; / &gt;</span><span>PROJECT 001 / WEB</span></div><div class="project-body"><span class="project-status">● 初版开发中</span><h2>大学个人博客</h2><p>用 Astro 搭建的静态博客。把页面、内容和样式分开管理，探索长期写作与 Web 开发的结合。</p><div class="tag-cloud"><span>Astro</span><span>Markdown</span><span>CSS</span></div><a class="text-link" href={url('posts/building-this-blog/')}>阅读开发记录 ↗</a><p class="project-note">本页展示开发分支中的原型；尚未合并到 main。</p></div></article>
-  <article class="project-card planned"><div class="project-visual"><span class="project-glyph">＋</span><span>THE NEXT SMALL IDEA</span></div><div class="project-body"><span class="project-status muted">构思示例 · 尚未开发</span><h2>下一个小作品</h2><p>可以是一段 Python 自动化脚本，或一个解决日常问题的网页小工具。完成后，再把真实的过程与收获放在这里。</p><div class="tag-cloud"><span>保持好奇</span><span>从小做起</span></div></div></article></div>
+<Base title="项目" description="个人博客与课程管理系统项目。">
+  <header class="page-heading"><h1>项目</h1><p>把正在学习的东西，变成可以使用和分享的作品</p></header>
+  <div class="project-grid">
+    <article class="project-card">
+      <h2>大学手记</h2>
+      <p>用 Astro 搭建的个人博客，记录大学生活与学习笔记，也展示亲手完成的小项目。页面、文章和样式分开管理，方便持续写作与维护。</p>
+      <div class="tag-cloud" aria-label="使用技术"><span>Astro</span><span>Markdown</span><span>CSS</span></div>
+      <a class="project-link" href="https://github.com/vilcg/web_self">查看源码</a>
+    </article>
+    <article class="project-card">
+      <h2>选课管理系统</h2>
+      <p>基于 Flask 的课程管理 Web 演示。学生可以查看课程、选课和退课；管理员可以添加课程并分配教师。</p>
+      <div class="tag-cloud" aria-label="使用技术"><span>Python</span><span>Flask</span><span>MySQL</span></div>
+      <a class="project-link" href="https://github.com/vilcg/pythondemopro">查看源码</a>
+    </article>
+  </div>
 </Base>
